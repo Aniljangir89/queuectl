@@ -1,0 +1,557 @@
+/* Modern UI styles for QueueCTL Dashboard */
+
+:root {
+  /* Colors */
+  --primary-color: #646cff;
+  --secondary-color: #535bf2;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --background-color: #f8f9fa;
+  --text-color: #333;
+  --border-color: #dee2e6;
+  --danger-color: #dc3545;
+
+  /* Gray Scale */
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  /* Border Radius */
+  --rounded-sm: 0.125rem;
+  --rounded: 0.25rem;
+  --rounded-md: 0.375rem;
+  --rounded-lg: 0.5rem;
+  
+  /* Transitions */
+  --transition: all 0.2s ease-in-out;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.job-details {
+  margin: 1.5rem 0;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.detail-row span:first-child {
+  font-weight: 600;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.error-details {
+  background: #fff5f5;
+  color: var(--danger-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Search bar */
+.search-bar {
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.page-info {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Job management */
+.job-management {
+  margin-top: 1rem;
+}
+
+.jobs-table tr {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.jobs-table tr:hover {
+  background-color: rgba(100, 108, 255, 0.1) !important;
+}
+
+/* Error message */
+.error-message {
+  background-color: #fff5f5;
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.error-message:hover {
+  opacity: 0.8;
+}
+
+/* Worker Controls */
+.worker-controls {
+  background: var(--background-color);
+  padding: 1rem;
+  border-radius: var(--rounded-md);
+  margin-bottom: 1.5rem;
+}
+
+.worker-status {
+  margin-bottom: 1rem;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-label {
+  font-weight: 500;
+}
+
+.status-value {
+  background: var(--border-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+
+.status-value.status-active {
+  background: var(--success-color);
+  color: white;
+}
+
+.worker-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.worker-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Worker Controls Styles */
+.worker-loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-500);
+}
+
+.worker-count {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.worker-count label {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.worker-count-help {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  font-weight: normal;
+}
+
+.worker-count-control {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.worker-count-btn {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-300);
+  background: white;
+  border-radius: var(--rounded-sm);
+  cursor: pointer;
+  color: var(--gray-700);
+  transition: var(--transition);
+}
+
+.worker-count-btn:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.worker-count-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.worker-count-input {
+  width: 60px;
+  height: 28px;
+  padding: 0.25rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--rounded-sm);
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--gray-900);
+}
+
+.worker-count-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+.worker-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.status-message {
+  margin-top: 0.5rem;
+  color: var(--gray-600);
+  font-size: 0.875rem;
+}
+
+/* Loading Spinner Styles */
+.loading-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-svg {
+  animation: rotate 1.4s linear infinite;
+}
+
+.spinner-path {
+  stroke: currentColor;
+  stroke-linecap: round;
+  animation: dash 1.4s ease-in-out infinite;
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.5rem;
+}
+
+.spinner-medium {
+  width: 24px;
+  height: 24px;
+}
+
+.spinner-large {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Toast Styles */
+.toast-container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 100%;
+  width: 400px;
+  pointer-events: none;
+}
+
+.toast {
+  padding: 1rem;
+  border-radius: var(--rounded-md);
+  background: white;
+  box-shadow: var(--shadow-lg);
+  color: var(--gray-900);
+  pointer-events: auto;
+  cursor: pointer;
+  animation: slideIn 0.3s ease-out;
+  opacity: 0.98;
+  transition: var(--transition);
+}
+
+.toast:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.toast-info {
+  border-left: 4px solid var(--primary-color);
+}
+
+.toast-success {
+  border-left: 4px solid var(--success-color);
+}
+
+.toast-error {
+  border-left: 4px solid var(--error-color);
+}
+
+.toast-warning {
+  border-left: 4px solid var(--warning-color);
+}
+
+.toast-content {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 0.98;
+  }
+}
+.dashboard {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: white;
+  box-shadow: var(--shadow);
+  border-radius: var(--rounded-lg);
+}
+
+.dashboard h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--gray-200);
+  padding-bottom: 1rem;
+}
+
+.control-panel {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.command-input {
+  flex: 1;
+  min-width: 300px;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--rounded-md);
+  font-size: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--rounded-md);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.state-filter {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: white;
+  font-size: 0.9rem;
+}
+
+.status-panel {
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+}
+
+.status-panel pre {
+  margin: 0.5rem 0 0;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+}
+
+.jobs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.jobs-table th,
+.jobs-table td {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.jobs-table th {
+  background-color: var(--background-color);
+  font-weight: 600;
+}
+
+.jobs-table tr:nth-child(even) {
+  background-color: var(--background-color);
+}
+
+.job-command {
+  max-width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-state {
+  font-weight: 500;
+}
+
+.state-pending { color: var(--primary-color); }
+.state-processing { color: var(--warning-color); }
+.state-completed { color: var(--success-color); }
+.state-failed { color: var(--error-color); }
+.state-dead { color: var(--error-color); }
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+  }
+  
+  .control-panel {
+    flex-direction: column;
+  }
+  
+  .command-input {
+    width: 100%;
+  }
+  
+  .jobs-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
