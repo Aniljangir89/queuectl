@@ -1,4 +1,4 @@
-# 🧩 QueueCTL - Background Job Queue System (Node.js)
+# 🧩 QueueCTL — Background Job Queue System (Node.js)
 
 A **CLI-based background job queue system** built using **Node.js**, designed to manage asynchronous job execution with multiple workers, automatic retries, exponential backoff, and a **Dead Letter Queue (DLQ)** for failed jobs.
 
@@ -23,8 +23,8 @@ A **CLI-based background job queue system** built using **Node.js**, designed to
 | File | Purpose |
 |------|----------|
 | `src/cli.js` | Command-line interface (CLI) for QueueCTL |
-| `src/queue.js` | Job management - enqueue, list, retry, DLQ |
-| `src/worker.js` | Worker lifecycle - polling, processing, backoff |
+| `src/queue.js` | Job management — enqueue, list, retry, DLQ |
+| `src/worker.js` | Worker lifecycle — polling, processing, backoff |
 | `src/db.js` | Persistent job storage using SQLite |
 | `src/config.js` | Read/write configuration |
 | `data/` | Stores SQLite DB (`queue.db`) and PID file (`worker.pid`) |
@@ -273,27 +273,3 @@ queuectl/
 | Config management | ✅ |
 | Comprehensive README | ✅ |
 | Test scripts included | ✅ |
-
----
-
-
-
-## 📹 Demo 
-
-### 1️⃣ Enqueue a Job
-
-![alt text](/queuectl/screenshots/image.png)
-
-### 2️⃣ Start a Worker
-![alt text](/queuectl//screenshots/image-1.png)
-
-
-### 3️⃣ View Status
-![alt text](/queuectl//screenshots/image-2.png)
-
-### 4️⃣ List Jobs by State
-![alt text](/queuectl/screenshots/image-3.png)
-
-### 5️⃣ Dead Letter Queue (Optional)
-
-![alt text](/queuectl/screenshots/image-5.png)
